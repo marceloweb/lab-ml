@@ -1,0 +1,9 @@
+version: '3'
+services:
+   machinelearn:
+      privileged: true
+      restart: always
+      image:
+      ports:
+      
+   chatbot:
