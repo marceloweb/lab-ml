@@ -3,7 +3,15 @@ services:
    machinelearn:
       privileged: true
       restart: always
-      image:
+      image: tensorflow/tensorflow
       ports:
-      
+        - 8888:8888 
    chatbot:
+      image: rocketchat/hubot-rocketchat:latest
+      restart: unless-stopped
+      environment:
+        - ROCKETCHAT_URL=rocketchat:3000
+        - ROCKETCHAT_ROOM=GENERAL
+        - ROCKETCHAT_USER=president
+        - ROCKETCHAT_PASSWORD=test123
+        - BOT_NAME=president
