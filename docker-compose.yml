@@ -5,7 +5,10 @@ services:
       restart: always
       image: tensorflow/tensorflow
       ports:
-        - 8888:8888 
+        - 8888:8888
+   rocketchat:
+      image: rocketchat/rocket.chat:latest
+      restart: unless-stopped 
    chatbot:
       image: rocketchat/hubot-rocketchat:latest
       restart: unless-stopped
