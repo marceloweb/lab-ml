@@ -12,8 +12,13 @@ services:
       depends_on:
         - mongo
    mongo:
-    image: mongo:latest
-    restart: always
+      image: mongo:latest
+      restart: always
+   mongo-init-replica:
+      image: mongo:latest
+      command: 'mongo mongo/rocketchat --eval "rs.initiate({ _id: ''rs0'', members: [ { _id: 0, host: ''localhost:27017'' } ]})"'
+    depends_on:
+      - mongo
    chatbot:
       image: rocketchat/hubot-rocketchat:latest
       restart: always
