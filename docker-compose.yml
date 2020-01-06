@@ -8,7 +8,12 @@ services:
         - 8888:8888
    rocketchat:
       image: rocketchat/rocket.chat:latest
-      restart: unless-stopped 
+      restart: always
+      depends_on:
+        - mongo
+   mongo:
+    image: mongo:latest
+    restart: always
    chatbot:
       image: rocketchat/hubot-rocketchat:latest
-      restart: unless-stopped
+      restart: always
