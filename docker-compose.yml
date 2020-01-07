@@ -22,3 +22,5 @@ services:
    chatbot:
       image: rocketchat/hubot-rocketchat:latest
       restart: always
+      depends_on:
+        - rocketchat 
